@@ -3,7 +3,7 @@ const apiRouter = Router()
 let helpers = require('../config/helpers.js')
 
 let User = require('../db/schema.js').User
-
+let Favorite = require('../db/schema.js').Favorite
   
   apiRouter
     .get('/users', function(req, res){
@@ -45,7 +45,26 @@ let User = require('../db/schema.js').User
       })  
     })
 
-    // Routes for a Model(resource) should have this structure
+  apiRouter
+    .get('/favorites', function(request, response) {
+      console.log('getting from server')
+      Favorite.find(request.query, function(error, records) {
+          if (error) {
+            return response.status(400).json(error)
+          }
+          response.json(records)
+        })
+      })
 
+    .post('/favorites', function(request, response) {
+      console.log('posting on server')
+      var newFavorite = new Favorite(request.body)
+      newFavorite.save(function(error, record) {
+        if (error) {
+          return response.status(400).json(error)
+        }
+        response.json(record)
+      })
+    })
 
 module.exports = apiRouter

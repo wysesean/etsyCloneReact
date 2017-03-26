@@ -15,6 +15,15 @@ const usersSchema = new mongoose.Schema({
 
 })
 
+const favoritesSchema = new mongoose.Schema({
+	listingID: {type:String, required:true},
+  imgUrl: {type:String, required:true},
+	price: {type:String, required:true},
+	title: {type:String, required:true},
+	favoritedAt: {type:Date, default:Date.now}
+})
+
 module.exports = {
-  User: mongoose.model('User', usersSchema)
+  User: mongoose.model('User', usersSchema),
+  Favorite: mongoose.model('Favorite', favoritesSchema)
 }

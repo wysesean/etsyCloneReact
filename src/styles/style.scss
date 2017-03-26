@@ -2,9 +2,37 @@
 	font-family: Helvetica, Arial, sans-serif;
 	box-sizing: border-box;
 }
+img{
+	max-width: 100%;
 
-h1 {
-	font-size: 300px;
-	text-align: center;
-	color: fuchsia;
+}
+body{
+	margin:0;
+	border:0;
+}
+.container{
+	display: inline-block;
+}
+
+#leftColumn{
+	display: inline-block;
+	vertical-align: top;
+	min-width: 20%;
+}
+
+#details-container{
+	display: inline-block;
+	max-width: 80%;
+}
+
+.listings-list{
+	display: inline-block;
+	max-width: 80%;
+}
+
+#single-listing{
+	display: inline-block;
+	min-width:33%;
+	min-height: 33%;
+	padding: 5px;
 }
