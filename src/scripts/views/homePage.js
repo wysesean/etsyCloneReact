@@ -77,7 +77,9 @@ var Listing = React.createClass({
 		return(
 			<div key={this.props.keyID} id='single-listing'>
 				<img onClick={()=>(this.handleImgClick(this.props.listingID))} src={this.props.listingImageURL} />
-				<p id='listingTitle'>{UTIL.formatTitle(this.props.listingTitle)}</p>
+				<div className='title-wrapper'>
+					<p id='listingTitle'>{this.props.listingTitle}</p>
+				</div>
 				<p id='listingPrice'>${this.props.listingPrice}</p>
 				<button onClick={()=>{this.handleFavClick()}} id='favoriteThis'>Favorite This</button>
 			</div>

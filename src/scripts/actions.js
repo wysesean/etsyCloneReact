@@ -49,6 +49,25 @@ var ACTIONS = {
 				})
 			})
 	},
+	fetchSearch:function(query){
+		var listingInstance = new ListingCollection()
+		console.log(query)
+		var promise = listingInstance.fetch({
+			dataType: 'jsonp',
+			data:{
+                'includes' : 'Images',
+				'api_key': etsyKey,
+				'sort_on': 'score',
+				'limit': '24',
+				'keywords':query 
+			}
+		})
+		promise.then(()=>{
+			STORE.set({
+				listingCollection: listingInstance
+			})
+		})
+	},
 
 	addFavorite:function(favoriteData){
 		console.log('addFavorite summoned')
