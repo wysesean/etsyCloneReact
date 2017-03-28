@@ -32,9 +32,9 @@ var LeftMenu = React.createClass({
 					</a>
 					<input onKeyPress={this.handleSearch} id='searchBar' type="text" placeholder="Search" />
 					<div className="buttonContainer">
-						<div onClick={this.handleSale} id='onSaleButton'><p>On Sale</p></div>
+						<button onClick={this.handleSale} id='onSaleButton'>On Sale</button>
 						<br />
-						<div id='postedWeekButton'><p>Posted Within Week</p></div>
+						<button id='postedWeekButton'>Posted Within Week</button>
 						<button id='showFavorites' onClick={this.changeHashFavorites}>Show Favorites</button>
 					</div>
 				</div>
