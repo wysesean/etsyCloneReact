@@ -24,6 +24,8 @@ cd etsyCloneReact
 npm install
 mongod
 npm run go
+
+go to `localhost:3000` in your browser
 ```
 
 
