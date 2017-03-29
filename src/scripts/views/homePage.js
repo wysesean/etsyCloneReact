@@ -15,6 +15,7 @@ var HomePage = React.createClass({
 		return STORE.data
 	},
 	componentWillUnmount:function(){
+		STORE.reset()
 		STORE.off()
 	},
 	render:function(){

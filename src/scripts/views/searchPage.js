@@ -15,6 +15,7 @@ var SearchPage = React.createClass({
 		return STORE.data
 	},
 	componentWillUnmount:function(){
+		STORE.reset()
 		STORE.off()
 	},
 	render:function(){
@@ -84,5 +85,7 @@ var Listing = React.createClass({
 		)
 	}
 })
+
+
 
 export default SearchPage

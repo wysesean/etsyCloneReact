@@ -10,15 +10,14 @@ var DetailPage = React.createClass({
 		ACTIONS.fetchDetailListing(this.props.itemIDProp)
 		STORE.on('dataUpdated', ()=>{
 			this.setState(STORE.data)
-		}).bind(this)
+		})
 	},
 	componentWillUnmount:function(){
+		STORE.reset()
 		STORE.off()
 	},
 	getInitialState:function(){
-		return{
-			detailModel:{}
-		}
+		return STORE.data
 	},
 	render:function(){
 		if(!UTIL.isEmptyObject(this.state.detailModel)){

@@ -9,6 +9,11 @@ const STORE = Object.assign({}, Backbone.Events, {
 		detailModel: new DetailsModel(),
 		favoriteCollection: new FavoritesCollection()
 	},
+	data_default:{
+		listingCollection : new ListingCollection(),
+		detailModel: new DetailsModel(),
+		favoriteCollection: new FavoritesCollection()
+	},
 	get: function(prop){
 		if(this.data[prop]===undefined){
 			throw new Error("store does not have property named"+prop)
@@ -19,6 +24,13 @@ const STORE = Object.assign({}, Backbone.Events, {
 		this.data = Object.assign(this.data, attrs)
 		this.trigger('dataUpdated')
 	},
+	reset: function() {
+		for (var prop in this.data) {
+			this.data[prop] = this.data_default[prop]
+		}
+		this.trigger('dataUpdated')
+	}
 })
+
 
 export default STORE
